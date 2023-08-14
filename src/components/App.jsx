@@ -1,16 +1,20 @@
+import ElementList from "./ElementList/ElementList";
+import Filter from "./Filter/Filter";
+import FormContacts from "./FormContacts/FormContacts";
+
+let state = {
+  contacts: [],
+  name: '',
+  number: '',
+ }
+ 
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <>
+    <h1>Phonebook</h1>
+      <FormContacts options={state}/>
+      {/* <ElementList /> */}
+      <Filter />
+    </>
   );
 };
