@@ -5,17 +5,18 @@ import { nanoid } from 'nanoid';
 
 class FormContacts extends Component {
   static defaultProps = {
-    contacts: [],
-    // name: '',
-    // number: '',
+    contacts: [
+      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
+      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
+      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
+      { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
+    ],
     handleSubmit: () => ({}),
   };
 
   static propTypes = {
     contacts: PropTypes.array,
     handleSubmit: PropTypes.func,
-    // name: PropTypes.string,
-    // number: PropTypes.number,
   };
 
   constructor(props) {
@@ -29,8 +30,6 @@ class FormContacts extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  contactId= nanoid();
-
   handleChange(evt) {
     const { name, value } = evt.target;
     this.setState({ [name]: value });
@@ -42,12 +41,15 @@ class FormContacts extends Component {
     const { name, number } = this.state;
     if (name && number) {
       const newContact = {
+        id: nanoid(),
         name,
         number,
       };
       const updatedContacts = [...this.state.contacts, newContact];
+      // console.log('new',updatedContacts );
       this.setState({ contacts: updatedContacts, name: '', number: '' });
-      // console.log(this.state);
+      console.log(this.state);
+      // console.log(this.id);
     }
   }
 
@@ -60,6 +62,7 @@ class FormContacts extends Component {
             Name
             <input
               type="text"
+              // id={this.contactId()}
               name="name"
               value={name}
               onChange={this.handleChange}

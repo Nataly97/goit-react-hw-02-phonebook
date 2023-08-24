@@ -8,9 +8,8 @@ class ListContacts extends Component {
       <div>
         <h1>Contacts:</h1>
         <ul>
-          {contacts.map((contact) => (
-            <ElementList contact={contact} />
-            // console.log(contacts)
+          {contacts.map(contact => (
+            <ElementList contact={contact} key={contact.id} />
           ))}
         </ul>
       </div>
