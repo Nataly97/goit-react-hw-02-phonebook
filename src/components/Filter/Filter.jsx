@@ -1,12 +1,22 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class Filter extends Component {
-    render() {
-        return (
-            <div>
-                <h1>Filter</h1>
-            </div>
-        )
-    }
+  render() {
+    const { value, onChange } = this.props;
+    return (
+      <div>
+        <label>
+          Find contacts by name
+          <input
+            type="text"
+            name="value"
+            value={value}
+            onChange={onChange}
+          />
+        </label>
+      </div>
+    );
+  }
 }
+
 export default Filter;

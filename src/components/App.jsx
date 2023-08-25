@@ -1,4 +1,3 @@
-import Filter from './Filter/Filter';
 import FormContacts from './FormContacts/FormContacts';
 
 let state = {
@@ -12,7 +11,6 @@ export const App = () => {
     <>
       <h1>Phonebook</h1>
       <FormContacts options={state} />
-      <Filter />
     </>
   );
 };
