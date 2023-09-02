@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
+import { Input, Label } from './FilterStyle';
 
 class Filter extends Component {
   render() {
     const { value, onChange } = this.props;
     return (
       <div>
-        <label>
+        <Label>
           Find contacts by name
-          <input
-            type="text"
-            name="value"
-            value={value}
-            onChange={onChange}
-          />
-        </label>
+          <Input type="text" name="value" value={value} onChange={onChange} />
+        </Label>
       </div>
     );
   }

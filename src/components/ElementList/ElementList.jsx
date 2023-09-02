@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
+import { Button, ElementoList } from './ElementListStyle';
 
 class ElementList extends Component {
   render() {
     const { contact, onDelete } = this.props;
     return (
       <div>
-        <li>
+        <ElementoList>
           {contact.name}: {contact.number}
-          <button onClick={onDelete}>Delete</button>
-        </li>
+          <Button onClick={onDelete}>Delete</Button>
+        </ElementoList>
       </div>
     );
   }

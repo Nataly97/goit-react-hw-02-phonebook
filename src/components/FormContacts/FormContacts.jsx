@@ -3,6 +3,14 @@ import PropTypes from 'prop-types';
 import ListContacts from 'components/ListContacts/ListContacts';
 import { nanoid } from 'nanoid';
 import Notiflix from 'notiflix';
+import {
+  Container,
+  Form,
+  Label,
+  Input,
+  Button,
+  Title,
+} from './FormContactsStyle';
 
 class FormContacts extends Component {
   static defaultProps = {
@@ -51,7 +59,7 @@ class FormContacts extends Component {
 
       if (existingContact) {
         Notiflix.Notify.failure(`${name} is already in contacts `);
-        return; 
+        return;
       }
 
       const newContact = {
@@ -81,13 +89,13 @@ class FormContacts extends Component {
   render() {
     const { name, number, contacts, filter } = this.state;
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <label>
+      <Container>
+        <Form onSubmit={this.handleSubmit}>
+          <Title>Phonebook</Title>
+          <Label>
             Name
-            <input
+            <Input
               type="text"
-              // id={this.contactId()}
               name="name"
               value={name}
               onChange={this.handleChange}
@@ -95,10 +103,10 @@ class FormContacts extends Component {
               title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
               required
             />
-          </label>
-          <label>
+          </Label>
+          <Label>
             Number
-            <input
+            <Input
               type="tel"
               name="number"
               value={number}
@@ -107,16 +115,16 @@ class FormContacts extends Component {
               title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
               required
             />
-          </label>
-          <button type="submit">Add contact</button>
-        </form>
+          </Label>
+          <Button type="submit">Add contact</Button>
+        </Form>
         <ListContacts
           contacts={contacts}
           filter={filter}
           onFilterChange={this.handleFilterChange}
           onContactDelete={this.handleContactDelete}
         />
-      </div>
+      </Container>
     );
   }
 }

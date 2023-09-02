@@ -9,7 +9,6 @@ let state = {
 export const App = () => {
   return (
     <>
-      <h1>Phonebook</h1>
       <FormContacts options={state} />
     </>
   );

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ElementList from 'components/ElementList/ElementList';
 import Filter from 'components/Filter/Filter';
+import { Container, Title } from './ListContactsStyle';
 
 class ListContacts extends Component {
   render() {
@@ -10,15 +11,19 @@ class ListContacts extends Component {
     );
 
     return (
-      <div>
-        <h1>Contacts:</h1>
+      <Container>
+        <Title>Contacts:</Title>
         <Filter value={filter} onChange={onFilterChange} />
         <ul>
           {filteredContacts.map(contact => (
-            <ElementList contact={contact} key={contact.id} onDelete={() => onContactDelete(contact.id)} />
+            <ElementList
+              contact={contact}
+              key={contact.id}
+              onDelete={() => onContactDelete(contact.id)}
+            />
           ))}
         </ul>
-      </div>
+      </Container>
     );
   }
 }
