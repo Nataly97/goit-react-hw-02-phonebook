@@ -2,9 +2,8 @@ import FormContacts from './FormContacts/FormContacts';
 
 // let state = {
 //   contacts: [],
-//   name: '',
-//   number: '',
-// };
+//   filter:'',
+// }
 
 export const App = () => {
   return (

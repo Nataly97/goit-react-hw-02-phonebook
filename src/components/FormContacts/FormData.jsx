@@ -4,13 +4,10 @@ import { Form, Label, Input, Button, Title } from './FormContactsStyle';
 
 class FormData extends Component {
   static propTypes = {
-    // numberForm: PropTypes.number,
-    // nameForm: PropTypes.string,
     handleChange: PropTypes.func,
     handleSubmit: PropTypes.func,
   };
   render() {
-    // const { nameForm, numberForm } = this.props;
     return (
       <>
         <Form onSubmit={this.handleSubmit}>
