@@ -19,19 +19,11 @@ class FormContacts extends Component {
       { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
-    // name: '',
-    // number: '',
     filter: '',
   };
 
-  handleChange = evt => {
-    const { name, value } = evt.target;
-    this.setState({ [name]: value });
-  };
-
-  handleSubmit = evt => {
-    evt.preventDefault();
-    const { name, number, contacts } = this.state;
+  handleSubmit = ({ name, number }) => {
+    const { contacts } = this.state;
 
     if (name && number) {
       const existingContact = contacts.find(
@@ -50,8 +42,7 @@ class FormContacts extends Component {
       };
 
       const updatedContacts = [...this.state.contacts, newContact];
-      this.setState({ contacts: updatedContacts, name: '', number: '' });
-      console.log(this.state);
+      this.setState({ contacts: updatedContacts });
     }
   };
 
@@ -68,13 +59,10 @@ class FormContacts extends Component {
   };
 
   render() {
-    const { name, number, contacts, filter } = this.state;
+    const { contacts, filter } = this.state;
     return (
       <Container>
         <FormData
-          numberForm={number}
-          nameForm={name}
-          handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
         />
         <ListContacts
